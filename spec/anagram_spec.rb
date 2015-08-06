@@ -3,11 +3,14 @@ require('anagram')
 
 describe('String#anagram') do
   it('Compares one letter to another') do
-    expect(("a").anagram()).to(eq(["a"]))
+    expect(("a").anagram("a", "a")).to(eq("They are both Anagrams!"))
   end
 
-describe('String#anagram') do
   it('Compares a single word to another') do
-    expect(("alyssa").anagram()).to(eq(["a","a","l","s","s","y"]))
+    expect(("alyssa").anagram("assyla", "llassy")).to(eq("assyla is an Anagram!"))
+  end
+
+  it('Compares two words to the original input word') do
+    expect(("cat").anagram("act", "tac")).to(eq("They are both Anagrams!"))
   end
 end
